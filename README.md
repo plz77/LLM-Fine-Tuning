@@ -9,9 +9,9 @@ This project demonstrates how to "teach" Large Language Models (LLMs) to underst
 
 
 1. Project Background
-What problem are we solving? Most pre-trained AI models are "jacks-of-all-trades" but masters of none. They have broad general knowledge but often fail at understanding niche business logic, specific technical documentation, or private institutional instructions.
+   What problem are we solving? Most pre-trained AI models are "jacks-of-all-trades" but masters of none. They have broad           general knowledge but often fail at understanding niche business logic, specific technical documentation, or private             institutional instructions.
 
-The main hurdle for students in the past was the massive cost of retraining these models. This project solves that by implementing Parameter-Efficient Fine-Tuning (PEFT). Instead of updating billions of parameters, we only train small "adapters." This makes LLM customization possible on a standard student laptop or PC equipped with a decent GPU.
+   The main hurdle for students in the past was the massive cost of retraining these models. This project solves that by            implementing Parameter-Efficient Fine-Tuning (PEFT). Instead of updating billions of parameters, we only train small             "adapters." This makes LLM customization possible on a standard student laptop or PC equipped with a decent GPU.
 
 
 2. Technology & Local Ecosystem
