@@ -14,31 +14,33 @@ What problem are we solving? Most pre-trained AI models are "jacks-of-all-trades
 The main hurdle for students in the past was the massive cost of retraining these models. This project solves that by implementing Parameter-Efficient Fine-Tuning (PEFT). Instead of updating billions of parameters, we only train small "adapters." This makes LLM customization possible on a standard student laptop or PC equipped with a decent GPU.
 
 
-3. Technology & Local Ecosystem
-This project is built using the Python ecosystem, optimized for local execution via NVIDIA CUDA:
-- NVIDIA CUDA: The engine that handles all the heavy lifting. It allows the software to bypass the CPU and use the thousands of cores in your GPU for lightning-fast math.
-- Hugging Face Transformers: Our library for downloading and managing base models like GPT-2, Llama, or Mistral.
-- PEFT (LoRA/QLoRA): This is the "magic" that makes fine-tuning possible on local hardware. It reduces memory usage by up to 90%.
-- BitsAndBytes: A library used for Quantization. It shrinks a large model (e.g., from 16GB to 4GB) so it can fit inside your GPU's VRAM.
-- Accelerate: Manages how the model uses your local hardware resources to prevent "Out of Memory" errors.
+2. Technology & Local Ecosystem
+   This project is built using the Python ecosystem, optimized for local execution via NVIDIA CUDA:
+        - NVIDIA CUDA: The engine that handles all the heavy lifting. It allows the software to bypass the CPU and use the                 thousands of cores in your GPU for lightning-fast math.
+        - Hugging Face Transformers: Our library for downloading and managing base models like GPT-2, Llama, or Mistral.
+        - PEFT (LoRA/QLoRA): This is the "magic" that makes fine-tuning possible on local hardware.
+          It reduces memory usage by up to 90%.
+        - BitsAndBytes: A library used for Quantization.
+          It shrinks a large model (e.g., from 16GB to 4GB) so it can fit inside your GPU's VRAM.
+        - Accelerate: Manages how the model uses your local hardware resources to prevent "Out of Memory" errors.
 
 
 3. How to Use (Local Setup)
-    A. Hardware Preparation Ensure you have an NVIDIA GPU with CUDA support.
+    - Hardware Preparation Ensure you have an NVIDIA GPU with CUDA support.
       - Recommendation: A GPU with 8GB of VRAM (like an RTX 3060) is the "sweet spot" for local training.
       - Software: Update your NVIDIA Drivers and install the CUDA Toolkit.
-    B. Clone the Repository Open your terminal and run:
+    - Clone the Repository Open your terminal and run:
       "git clone https://github.com/username/LLM-Fine-Tuning.git cd LLM-Fine-Tuning"
-    C. Install Dependencies Install the necessary libraries for local GPU training:
+    - Install Dependencies Install the necessary libraries for local GPU training:
       "pip install -q -U bitsandbytes transformers peft accelerate datasets"
-    D. Execute the Notebook Open LLM_Fine_Tuning.ipynb in VS Code or Jupyter Lab. Run the cells one by one. If you use a gated          model (like Llama 3), make sure to paste your Hugging Face token when prompted.
+    - Execute the Notebook Open LLM_Fine_Tuning.ipynb in VS Code or Jupyter Lab. Run the cells one by one. If you use a gated          model (like Llama 3), make sure to paste your Hugging Face token when prompted.
 
 
 4. Why Local Training?
-  We focus on local development for three main reasons:
-      1. Zero Cost: Students don't need to pay for AWS or Google Colab subscriptions.
-      2. Privacy: Your training data stays on your hard drive—never uploaded to the cloud.
-      3. Hardware Literacy: You learn how to manage actual PC resources like VRAM and thermals.
+   We focus on local development for three main reasons:
+      - Zero Cost: Students don't need to pay for AWS or Google Colab subscriptions.
+      - Privacy: Your training data stays on your hard drive—never uploaded to the cloud.
+      - Hardware Literacy: You learn how to manage actual PC resources like VRAM and thermals.
 
 
 ⚠️ Solution for "Invalid Notebook" Error on GitHub
