@@ -2,62 +2,47 @@
 A little project to showcase AI function and ability to my student in all my class
 LLM Fine-Tuning Project
 
-This project demonstrates the process of fine-tuning Large Language Models (LLMs) to improve response accuracy and relevance within specific domains using efficient optimization techniques.
+LLM-Fine-Tuning: Local Development Guide
+A comprehensive educational project designed to showcase the power of specialized AI to students using local hardware.
 
-📖 Background
-
-What problem are we solving?
-Pre-trained Large Language Models (LLMs) often possess broad general knowledge but lack specific understanding of niche business contexts, technical documentation, or private instructions. The primary challenge is the prohibitive computational cost of retraining all model parameters. This project addresses this by implementing Parameter-Efficient Fine-Tuning (PEFT). This approach allows the model to adapt to specialized tasks without requiring ultra-high-end hardware, making LLM customization more accessible and cost-effective.
-
-🛠️ Technology & Libraries
-
-This project is developed using the Python ecosystem and cloud infrastructure:
-
-Cloud Infrastructure: AWS (Amazon Web Services) – Used for resource management and model storage for production-scale deployments.
-
-Programming Language: Python 3.10+
-
-Primary Libraries:
-
-transformers (Hugging Face): For loading models and tokenizers.
-
-peft (Parameter-Efficient Fine-Tuning): Utilizing LoRA/QLoRA techniques for memory efficiency.
-
-bitsandbytes: For model quantization to run on GPUs with limited VRAM.
-
-datasets: For training data processing and loading.
-
-accelerate: To optimize computation across GPU resources.
-
-🚀 How to Use
-
-To run this code, follow the steps below:
-
-Resource Preparation: Ensure you have access to a GPU (Recommended: Google Colab T4 or AWS SageMaker ml.g4dn.xlarge).
-
-Clone the Repository:
-
-git clone [https://github.com/username/LLM-Fine-Tuning.git](https://github.com/username/LLM-Fine-Tuning.git)
-cd LLM-Fine-Tuning
+This project demonstrates how to "teach" Large Language Models (LLMs) to understand specific contexts (such as Indonesian educational curriculum) using advanced but accessible local optimization techniques.
 
 
-Install Dependencies:
-Run the following command in your terminal or notebook cell:
+1. Project Background
+What problem are we solving? Most pre-trained AI models are "jacks-of-all-trades" but masters of none. They have broad general knowledge but often fail at understanding niche business logic, specific technical documentation, or private institutional instructions.
+The main hurdle for students in the past was the massive cost of retraining these models. This project solves that by implementing Parameter-Efficient Fine-Tuning (PEFT). Instead of updating billions of parameters, we only train small "adapters." This makes LLM customization possible on a standard student laptop or PC equipped with a decent GPU.
 
-pip install -q -U bitsandbytes transformers peft accelerate datasets
+
+2. Technology & Local Ecosystem
+This project is built using the Python ecosystem, optimized for local execution via NVIDIA CUDA:
+- NVIDIA CUDA: The engine that handles all the heavy lifting. It allows the software to bypass the CPU and use the thousands of cores in your GPU for lightning-fast math.
+- Hugging Face Transformers: Our library for downloading and managing base models like GPT-2, Llama, or Mistral.
+- PEFT (LoRA/QLoRA): This is the "magic" that makes fine-tuning possible on local hardware. It reduces memory usage by up to 90%.
+- BitsAndBytes: A library used for Quantization. It shrinks a large model (e.g., from 16GB to 4GB) so it can fit inside your GPU's VRAM.
+- Accelerate: Manages how the model uses your local hardware resources to prevent "Out of Memory" errors.
 
 
-Execute the Notebook:
-Open LLM_Fine_Tuning.ipynb and run the cells sequentially. Ensure you have provided a HUGGINGFACE_TOKEN if you are using gated models (such as Llama or Mistral).
+3. How to Use (Local Setup)
+A. Hardware Preparation Ensure you have an NVIDIA GPU with CUDA support.
+  - Recommendation: A GPU with 8GB of VRAM (like an RTX 3060) is the "sweet spot" for local training.
+  - Software: Update your NVIDIA Drivers and install the CUDA Toolkit.
+B. Clone the Repository Open your terminal and run:
+  "git clone https://github.com/username/LLM-Fine-Tuning.git cd LLM-Fine-Tuning"
+C. Install Dependencies Install the necessary libraries for local GPU training:
+  "pip install -q -U bitsandbytes transformers peft accelerate datasets"
+D. Execute the Notebook Open LLM_Fine_Tuning.ipynb in VS Code or Jupyter Lab. Run the cells one by one. If you use a gated model (like Llama 3), make sure to paste your Hugging Face token when prompted.
+
+
+4. Why Local Training?
+We focus on local development for three main reasons:
+  1. Zero Cost: Students don't need to pay for AWS or Google Colab subscriptions.
+  2. Privacy: Your training data stays on your hard drive—never uploaded to the cloud.
+  3. Hardware Literacy: You learn how to manage actual PC resources like VRAM and thermals.
+
 
 ⚠️ Solution for "Invalid Notebook" Error on GitHub
-
 If you encounter the error message "the 'state' key is missing from 'metadata.widgets'" when viewing the file on GitHub, please follow these steps:
-
-In Google Colab, go to Edit > Notebook Settings.
-
-Check the box "Omit code cell output when saving this notebook".
-
-Click Save, then resave to GitHub (File > Save a copy in GitHub).
-
-This action clears the corrupted widget metadata, allowing GitHub to render your code correctly.
+- In Google Colab, go to Edit > Notebook Settings.
+- Check the box "Omit code cell output when saving this notebook".
+- Click Save, then resave to GitHub (File > Save a copy in GitHub).
+- This action clears the corrupted widget metadata, allowing GitHub to render your code correctly.
